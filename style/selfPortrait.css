@@ -1,5 +1,6 @@
 body {
 	margin: 0px;
+	font-family: 'Open Sans', sans-serif;
 }
 
 #canv, #videoel {
@@ -16,7 +17,7 @@ body {
 	position:fixed;
 	width:100vw;
 	height:100vh;
-	background-color:black;
+	background-color:white;
 	z-index: 2;
 	/*opacity:0.5;*/
 }
@@ -43,7 +44,7 @@ body {
 }
 .warning{
 	width:60vw;
-	font-size:24px;
+	height:60vh;
 	text-align: center;
 	position: fixed;
 	left:19vw;
@@ -51,15 +52,19 @@ body {
 	display: none;
 	background-color: white;
 	padding:1vw;
+	border:1.5px black solid;
 }
 h1 {
 	margin:0;
 	font-size: 35vw;
-	color: white;
+	color: black;
 	line-height: 0.8em;
 	white-space: nowrap;
 	vertical-align: top;
 }
-
+h2{
+	margin:0;
+	font-size:24px;
+}
 
 

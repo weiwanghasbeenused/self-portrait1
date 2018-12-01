@@ -88,14 +88,16 @@ function adjustSize(){
 $(document).jkey('d',function(){
 	if(status==0){
 		console.log("start!");
-		rec.start();  
-		resizingBox();
+		rec.start(); 
+		console.log("currentt = "+current); 
+		resizingBox(current);
 		status = 1;
 	}else if(status==2){
-		$("#warning").stop().fadeOut("200");
+		console.log("pressing d when status = 2!");
+		$("#warning_reset").stop().fadeOut("200");
 		status = 1;
 	}else if(status==3){
-		$("#printing").stop().fadeOut("200");
+		$("#warning_printing").stop().fadeOut("200");
 		status = 1;
 	}
 });
@@ -105,10 +107,10 @@ $(document).jkey('w',function(){
 	if(status==1){
 		status = 0;
 	}else if(status==2){
-		$("#warning").stop().fadeOut("200");
+		$("#warning_reset").stop().fadeOut("200");
 		status = 0;
 	}else if(status==3){
-		$("#printing").stop().fadeOut("200");
+		$("#warning_printing").stop().fadeOut("200");
 		status = 0;
 	}
 });
@@ -119,6 +121,7 @@ $(document).jkey('a',function(){
 		$("#warning_reset").stop().fadeIn("200");
 		status = 2;
 	}else if(status == 2){
+		$("#warning_reset").html("<h2>Restarting...</h2>");
 		location.reload();
 	}
 });

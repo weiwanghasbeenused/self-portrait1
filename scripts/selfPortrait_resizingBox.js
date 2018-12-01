@@ -6,6 +6,7 @@ function resizingBox(c){
     switch(c){
         case 0:
         // only 1 box
+        console.log("resizing when current = 0");
             var w = rightest-leftest,
                 h = bottomest-topest,
                 l = wWidth-rightest;
