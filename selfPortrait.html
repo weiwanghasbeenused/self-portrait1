@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Self Portrait</title>
+		<meta charset="utf-8">
+		<link href="style/selfPortrait.css" rel="stylesheet" type="text/css">
+		<link href="style/selfPortrait_fontSize.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<script src="scripts/library/jquery-3.3.1.js"></script>
+		<script src="scripts/library/clmtrackr/clmtrackr.js"></script>
+		<script src="scripts/library/clmtrackr/utils.js"></script>
+		<script src="scripts/library/p5.js"></script>
+		<script src="scripts/library/p5.dom.js"></script>
+		<script src="scripts/library/p5.sound.js"></script>
+		<script src="scripts/library/p5.speech.js"></script>
+		<script src="scripts/library/p5.speech.js"></script>
+		<script src="scripts/library/jquery.jkey.min.js"></script>
+		<div id = "container">
+			<div id = "warning_reset" class = "warning">
+				<h2>The text on the screen will be cleaned. Are you sure you want to restart recording? </br>If you realy want to reset it, press "restart" again. Otherwise, press "start"
+				</h2>
+			</div>
+			<div id = "warning_printing" class = "warning">
+				<h2>The text on the screen will be cleaned. Are you sure you want to restart recording? </br>If you realy want to reset it, press "restart" again. Otherwise, press "start"
+				</h2>
+			</div>
+			<div id = "cover"></div>
+			<video id="videoel" class = "full" preload="auto" loop playsinline autoplay></video>
+			<canvas id="canv" class = "full"></canvas>
+			<div id = "testHeight"><h1>test</h1></div>
+			<div id = "box0" class = "resultBox"><h1 class = 'size0'></h1></div>
+		</div>
+		<script src="scripts/selfPortrait_face.js"></script>
+		<script src="scripts/selfPortrait_movingBox.js"></script>
+		<script src="scripts/selfPortrait_resizingBox.js"></script>
+		<script src="scripts/selfPortrait_speech.js"></script>
+	</body>
+</html>
