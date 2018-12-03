@@ -22,6 +22,10 @@ var cheekLeft,
     cheekWidth;
 var maxCurrent = 17;
 var maxSteps = 26;
+function setup(){
+  noCanvas();
+  frameRate(24);
+};
 function adjustVideoProportions() {
           var proportion = vid.videoWidth/vid.videoHeight;
               vid_height = vid_width/proportion;
@@ -75,12 +79,21 @@ var trackingStarted = false;
 function startVideo() {
           ctrack.start(vid);
           trackingStarted = true;
-          drawLoop();
+          // drawLoop();
           // resizingBox();
         }
        
-function drawLoop() {
-  requestAnimFrame(drawLoop);
+// function drawLoop() {
+//   requestAnimFrame(drawLoop);
+//   if(ctrack.getCurrentPosition()){
+//     positions = ctrack.getCurrentPosition();
+//     movingBox(current);
+//       // adjustSize();
+
+//   }
+// }
+function draw(){
+  // requestAnimFrame(drawLoop);
   if(ctrack.getCurrentPosition()){
     positions = ctrack.getCurrentPosition();
     movingBox(current);
