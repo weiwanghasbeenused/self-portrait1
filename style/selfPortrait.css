@@ -44,8 +44,8 @@ body {
 	/*background-color: rgba(255,0,0,0.5);*/
 }
 .warning{
-	width:10vw;
-	height:60vh;
+	width:40vw;
+	height:10h;
 	text-align: center;
 	position: fixed;
 	left:28vw;
