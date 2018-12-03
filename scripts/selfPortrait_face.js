@@ -12,8 +12,14 @@ var btEyes;
 var btEyes2;
 var chinLeft;
 var chinLeft2;
+var chinLeft3;
 var noseLeft;
 var mouthLeft;
+var mouthLeft2;
+var mouthWidth1;
+var mouthWidth2;
+var cheekLeft,
+    cheekWidth;
 var maxCurrent = 17;
 var maxSteps = 26;
 function adjustVideoProportions() {

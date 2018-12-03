@@ -234,11 +234,11 @@ function movingBox(c){
             });
             $("#box5").css({
                 "left":l_2+noseLeft+"px",
-                "top":h_2*4+topest_2+"px"
+                "top":h_2*3+topest_2+"px"
             });
             $("#box6").css({
                 "left":l_2+"px",
-                "top":h_2*5+topest_2+"px"
+                "top":h_2*4+topest_2+"px"
             });
             $("#box7").css({
                 "left":l_2+"px",
@@ -516,9 +516,9 @@ function movingBox(c){
                 "left":l_2+chinLeft+"px",
                 "top":positions[57][1]+h_2+"px"
             });
-    }
-    if(c>=14){
-        var w_2 = rightest_2-leftest_2,
+            break;
+        case 14:
+            var w_2 = rightest_2-leftest_2,
             h_2 = aboveMouth2/8,
             l_2 = wWidth-rightest_2;
             $("#box0").css({
@@ -566,20 +566,241 @@ function movingBox(c){
                 "top":h_2*7+topest_2+"px"
             });
             $("#box11").css({
-                "left":l_2+"px",
-                "top":h_2*8+topest_2+"px"
-            });
-            $("#box12").css({
                 "left":l_2+mouthLeft+"px",
                 "top":h_2*8+topest_2+"px"
             });
+            $("#box12").css({
+                "left":l_2+mouthLeft2+"px",
+                "top":h_2*8+topest_2+"px"
+            });
             $("#box13").css({
-                "left":l_2+"px",
+                "left":l_2+chinLeft2+"px",
                 "top":positions[57][1]+"px"
             });
             $("#box14").css({
                 "left":l_2+chinLeft+"px",
                 "top":positions[57][1]+h_2+"px"
             });
+            break;
+        case 15:
+            var w_2 = rightest_2-leftest_2,
+            h_2 = aboveMouth2/8,
+            l_2 = wWidth-rightest_2;
+            $("#box0").css({
+                "left":l_2+"px",
+                "top":topest_2+"px"
+            });
+            $("#box1").css({
+                "left":l_2+"px",
+                "top":h_2+topest_2+"px"
+            });
+            $("#box2").css({
+                "left":l_2+"px",
+                "top":h_2*2+topest_2+"px"
+            });
+            $("#box3").css({
+                "left":l_2+btEyes2+"px",
+                "top":h_2*2+topest_2+"px"
+            });
+            $("#box4").css({
+                "left":l_2+btEyes+"px",
+                "top":h_2*2+topest_2+"px"
+            });
+            $("#box5").css({
+                "left":l_2+"px",
+                "top":h_2*3+topest_2+"px"
+            });
+            $("#box6").css({
+                "left":l_2+"px",
+                "top":h_2*4+topest_2+"px"
+            });
+            $("#box7").css({
+                "left":l_2+cheekLeft+"px",
+                "top":h_2*5+topest_2+"px"
+            });
+            $("#box8").css({
+                "left":l_2+noseLeft+"px",
+                "top":h_2*5+topest_2+"px"
+            });
+            $("#box9").css({
+                "left":l_2+cheekLeft+"px",
+                "top":h_2*6+topest_2+"px"
+            });
+            $("#box10").css({
+                "left":l_2+cheekLeft+"px",
+                "top":h_2*7+topest_2+"px"
+            });
+            $("#box11").css({
+                "left":l_2+mouthLeft+"px",
+                "top":h_2*8+topest_2+"px"
+            });
+            $("#box12").css({
+                "left":l_2+mouthLeft2+"px",
+                "top":h_2*8+topest_2+"px"
+            });
+            $("#box13").css({
+                "left":l_2+chinLeft2+"px",
+                "top":positions[57][1]+"px"
+            });
+            $("#box14").css({
+                "left":l_2+chinLeft+"px",
+                "top":positions[57][1]+h_2+"px"
+            });
+            $("#box15").css({
+                "left":l_2+chinLeft3+"px",
+                "top":positions[57][1]+h_2*2+"px"
+            });
+            break;
+
+        case 16:
+            var w_2 = rightest_2-leftest_2,
+            h_2 = aboveMouth2/9,
+            l_2 = wWidth-rightest_2;
+            $("#box0").css({
+                "left":l_2+"px",
+                "top":topest_2+"px"
+            });
+            $("#box1").css({
+                "left":l_2+"px",
+                "top":h_2+topest_2+"px"
+            });
+            $("#box2").css({
+                "left":l_2+"px",
+                "top":h_2*2+topest_2+"px"
+            });
+            $("#box3").css({
+                "left":l_2+btEyes2+"px",
+                "top":h_2*2+topest_2+"px"
+            });
+            $("#box4").css({
+                "left":l_2+btEyes+"px",
+                "top":h_2*2+topest_2+"px"
+            });
+            $("#box5").css({
+                "left":l_2+"px",
+                "top":h_2*3+topest_2+"px"
+            });
+            $("#box6").css({
+                "left":l_2+"px",
+                "top":h_2*4+topest_2+"px"
+            });
+            $("#box7").css({
+                "left":l_2+cheekLeft+"px",
+                "top":h_2*5+topest_2+"px"
+            });
+            $("#box8").css({
+                "left":l_2+noseLeft+"px",
+                "top":h_2*5+topest_2+"px"
+            });
+            $("#box9").css({
+                "left":l_2+cheekLeft+"px",
+                "top":h_2*6+topest_2+"px"
+            });
+            $("#box10").css({
+                "left":l_2+cheekLeft+"px",
+                "top":h_2*7+topest_2+"px"
+            });
+            $("#box11").css({
+                "left":l_2+mouthLeft+"px",
+                "top":h_2*8+topest_2+"px"
+            });
+            $("#box12").css({
+                "left":l_2+mouthLeft2+"px",
+                "top":h_2*8+topest_2+"px"
+            });
+            $("#box13").css({
+                "left":l_2+chinLeft2+"px",
+                "top":positions[57][1]+"px"
+            });
+            $("#box14").css({
+                "left":l_2+chinLeft2+"px",
+                "top":positions[57][1]+h_2+"px"
+            });
+            $("#box15").css({
+                "left":l_2+chinLeft+"px",
+                "top":positions[57][1]+h_2*2+"px"
+            });
+            $("#box16").css({
+                "left":l_2+chinLeft3+"px",
+                "top":positions[57][1]+h_2*3+"px"
+            });
+    }
+    if(c>=17){
+            var w_2 = rightest_2-leftest_2,
+            h_2 = aboveMouth2/9,
+            l_2 = wWidth-rightest_2;
+            $("#box0").css({
+                "left":l_2+"px",
+                "top":topest_2+"px"
+            });
+            $("#box1").css({
+                "left":l_2+"px",
+                "top":h_2+topest_2+"px"
+            });
+            $("#box2").css({
+                "left":l_2+"px",
+                "top":h_2*2+topest_2+"px"
+            });
+            $("#box3").css({
+                "left":l_2+btEyes2+"px",
+                "top":h_2*2+topest_2+"px"
+            });
+            $("#box4").css({
+                "left":l_2+btEyes+"px",
+                "top":h_2*2+topest_2+"px"
+            });
+            $("#box5").css({
+                "left":l_2+"px",
+                "top":h_2*3+topest_2+"px"
+            });
+            $("#box6").css({
+                "left":l_2+"px",
+                "top":h_2*4+topest_2+"px"
+            });
+            $("#box7").css({
+                "left":l_2+"px",
+                "top":h_2*5+topest_2+"px"
+            });
+            $("#box8").css({
+                "left":l_2+cheekLeft+"px",
+                "top":h_2*6+topest_2+"px"
+            });
+            $("#box9").css({
+                "left":l_2+noseLeft+"px",
+                "top":h_2*6+topest_2+"px"
+            });
+            $("#box10").css({
+                "left":l_2+cheekLeft+"px",
+                "top":h_2*7+topest_2+"px"
+            });
+            $("#box11").css({
+                "left":l_2+cheekLeft+"px",
+                "top":h_2*8+topest_2+"px"
+            });
+            $("#box12").css({
+                "left":l_2+mouthLeft+"px",
+                "top":h_2*9+topest_2+"px"
+            });
+            $("#box13").css({
+                "left":l_2+mouthLeft2+"px",
+                "top":h_2*9+topest_2+"px"
+            });
+            $("#box14").css({
+                "left":l_2+chinLeft2+"px",
+                "top":positions[57][1]+"px"
+            });
+            $("#box15").css({
+                "left":l_2+chinLeft2+"px",
+                "top":positions[57][1]+h_2+"px"
+            });
+            $("#box16").css({
+                "left":l_2+chinLeft+"px",
+                "top":positions[57][1]+h_2*2+"px"
+            });
+            $("#box17").css({
+                "left":l_2+chinLeft3+"px",
+                "top":positions[57][1]+h_2*3+"px"
+            });
+        
     }
 }

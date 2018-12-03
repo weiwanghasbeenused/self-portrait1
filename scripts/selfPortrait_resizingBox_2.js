@@ -2,7 +2,7 @@ function resizingBox(c){
     var topest = Math.min(positions[20][1],positions[16][1]);
     var bottomest = positions[7][1];
     var leftest = positions[1][0];
-    var rightest = positions[14][0];
+    var rightest = positions[13][0];
     var aboveMouth = positions[60][1]-topest;
     var w = rightest-leftest;
     var l = wWidth-rightest;
@@ -19,8 +19,10 @@ function resizingBox(c){
         var h = aboveMouth/5;
     }else if(c>=10&&c<12){
         var h = aboveMouth/(c-4);
-    }else if(c>=12){
+    }else if(c>=12&&c<17){
         var h = aboveMouth/8;
+    }else if(c>=17){
+        var h = aboveMouth/9;
     }
     // setting btEyes
     if(c>=2){
@@ -35,6 +37,10 @@ function resizingBox(c){
     if(c>=6){
         chinLeft = (w-(positions[9][0]-positions[5][0]))/2;
     }
+    if(c>=14){
+        chinLeft2 = (w-(positions[10][0]-positions[4][0]))/2;
+        chinLeft3 = (w-(positions[8][0]-positions[6][0]))/2;
+    }
 
     // setting nose
     if(c>=7){
@@ -46,7 +52,18 @@ function resizingBox(c){
 
     // setting mouth
     if(c>=14){
-        mouthLeft = w-(positions[44][0]-positions[3][0]);
+        mouthLeft = (positions[13][0]-positions[11][0]);
+        mouthLeft2 = (positions[50][0]-positions[1][0]);
+        mouthWidth1 = positions[11][0]-positions[50][0];
+        mouthWidth2 = positions[44][0]-positions[3][0];
+    }
+
+    // setting Cheek
+
+    if(c>=15){
+        cheekLeft = rightest-positions[12][0];
+        cheekWidth = positions[12][0]-positions[2][0];
+        noseLeft = rightest-positions[35][0];
     }
     
     switch(c){
@@ -572,23 +589,23 @@ function resizingBox(c){
                 "height":h+"px"
             });
             $("#box9").css({
-                "width":w+"px",
+                "width":cheekWidth+"px",
                 "height":h+"px"
             });
             $("#box10").css({
-                "width":w+"px",
+                "width":cheekWidth+"px",
                 "height":h+"px"
             });
             $("#box11").css({
-                "width":positions[11][0]-positions[50][0]+"px",
+                "width":mouthWidth1+"px",
                 "height":h+"px"
             });
             $("#box12").css({
-                "width":positions[44][0]-positions[3][0]+"px",
+                "width":mouthWidth2+"px",
                 "height":h+"px"
             });
             $("#box13").css({
-                "width":w+"px",
+                "width":(positions[10][0]-positions[4][0])+"px",
                 "height":h+"px"
             });
             $("#box14").css({
@@ -635,36 +652,177 @@ function resizingBox(c){
                 "height":h+"px"
             });
             $("#box9").css({
-                "width":w+"px",
+                "width":cheekWidth+"px",
                 "height":h+"px"
             });
             $("#box10").css({
-                "width":w+"px",
+                "width":cheekWidth+"px",
                 "height":h+"px"
             });
             $("#box11").css({
-                "width":positions[11][0]-positions[50][0]+"px",
+                "width":mouthWidth1+"px",
                 "height":h+"px"
             });
             $("#box12").css({
-                "width":positions[44][0]-positions[3][0]+"px",
+                "width":mouthWidth2+"px",
                 "height":h+"px"
             });
             $("#box13").css({
-                "width":w+"px",
-                "height":h+"px"
-            });
-            $("#box13").css({
-                "width":w+"px",
+                "width":(positions[10][0]-positions[4][0])+"px",
                 "height":h+"px"
             });
             $("#box14").css({
                 "width":chinWidth+"px",
                 "height":h+"px"
             });
+            $("#box15").css({
+                "width":(positions[8][0]-positions[6][0])+"px",
+                "height":h+"px"
+            });
+            break;
+        case 16:
+            $("#box0").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box1").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box2").css({
+                "width":positions[14][0]-positions[28][0]+"px",
+                "height":h+"px"
+            });
+            $("#box3").css({
+                "width":positions[30][0]-positions[25][0]+"px",
+                "height":h+"px"
+            });
+            $("#box4").css({
+                "width":positions[23][0]-positions[0][0]+"px",
+                "height":h+"px"
+            });
+            $("#box5").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box6").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box7").css({
+                "width":positions[12][0]-positions[39][0]+"px",
+                "height":h+"px"
+            });
+            $("#box8").css({
+                "width":positions[35][0]-positions[2][0]+"px",
+                "height":h+"px"
+            });
+            $("#box9").css({
+                "width":cheekWidth+"px",
+                "height":h+"px"
+            });
+            $("#box10").css({
+                "width":cheekWidth+"px",
+                "height":h+"px"
+            });
+            $("#box11").css({
+                "width":mouthWidth1+"px",
+                "height":h+"px"
+            });
+            $("#box12").css({
+                "width":mouthWidth2+"px",
+                "height":h+"px"
+            });
+            $("#box13").css({
+                "width":(positions[10][0]-positions[4][0])+"px",
+                "height":h+"px"
+            });
+            $("#box14").css({
+                "width":(positions[10][0]-positions[4][0])+"px",
+                "height":h+"px"
+            });
+            $("#box15").css({
+                "width":chinWidth+"px",
+                "height":h+"px"
+            });
+            $("#box16").css({
+                "width":(positions[8][0]-positions[6][0])+"px",
+                "height":h+"px"
+            });
     }
-    if(c>=14){
-            
+    if(c>=17){
+            $("#box0").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box1").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box2").css({
+                "width":positions[14][0]-positions[28][0]+"px",
+                "height":h+"px"
+            });
+            $("#box3").css({
+                "width":positions[30][0]-positions[25][0]+"px",
+                "height":h+"px"
+            });
+            $("#box4").css({
+                "width":positions[23][0]-positions[0][0]+"px",
+                "height":h+"px"
+            });
+            $("#box5").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box6").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box7").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box8").css({
+                "width":positions[12][0]-positions[39][0]+"px",
+                "height":h+"px"
+            });
+            $("#box9").css({
+                "width":positions[35][0]-positions[2][0]+"px",
+                "height":h+"px"
+            });
+            $("#box10").css({
+                "width":cheekWidth+"px",
+                "height":h+"px"
+            });
+            $("#box11").css({
+                "width":cheekWidth+"px",
+                "height":h+"px"
+            });
+            $("#box12").css({
+                "width":mouthWidth1+"px",
+                "height":h+"px"
+            });
+            $("#box13").css({
+                "width":mouthWidth2+"px",
+                "height":h+"px"
+            });
+            $("#box14").css({
+                "width":(positions[10][0]-positions[4][0])+"px",
+                "height":h+"px"
+            });
+            $("#box15").css({
+                "width":(positions[10][0]-positions[4][0])+"px",
+                "height":h+"px"
+            });
+            $("#box16").css({
+                "width":chinWidth+"px",
+                "height":h+"px"
+            });
+            $("#box17").css({
+                "width":(positions[8][0]-positions[6][0])+"px",
+                "height":h+"px"
+            });
 
     }
 }

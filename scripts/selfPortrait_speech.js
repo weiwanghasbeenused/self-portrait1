@@ -93,12 +93,17 @@ function textHeight(){
 };
 
 function adjustSize(){
-	$("h1").removeClass().addClass("size"+current);
+	if(current<=maxCurrent){
+		$("h1").removeClass().addClass("size"+current);
+	}
+	else{
+		$("h1").removeClass().addClass("final");
+	}
 	h1LineHeight = textHeight();
 }
 
 // start speech
-$(document).jkey('d',function(){
+$(document).jkey('d',function startRec(){
 	if(current<27){
 		if(status==0){
 			console.log("start!");
@@ -119,7 +124,7 @@ $(document).jkey('d',function(){
 });
 
 // pause speech
-$(document).jkey('w',function(){
+$(document).jkey('w',function pauseRec(){
 	
 		if(status==1){
 			status = 0;
@@ -134,7 +139,7 @@ $(document).jkey('w',function(){
 });
 
 // restart
-$(document).jkey('a',function(){
+$(document).jkey('a',function restart(){
 	if(status==0||status == 1||status == 4){
 		$("#warning_reset").stop().fadeIn(200);
 		status = 2;
@@ -144,13 +149,20 @@ $(document).jkey('a',function(){
 	}
 });
 
-$(document).jkey('s',function(){
+$(document).jkey('s',function pinting(){
 	if(status==0||status == 1||status == 4){
 		$("#warning_printing").stop().fadeIn(200);
 		status = 3;
 	}else if(status == 3){
 		// do something printing
 	}
+});
+
+$(document).jkey('p',function(){
+	console.log("shot!");
+	html2canvas(document.body).then(function(canvas) {
+    	document.body.appendChild(canvas);
+	});
 });
 
 startVideo(); //start face
