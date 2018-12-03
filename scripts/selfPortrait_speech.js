@@ -116,6 +116,11 @@ function startRec() {
 			rec.start(); 
 			resizingBox(current);
 			status = 1;
+			$("#sign_pause").stop().fadeOut(200);
+			$("#sign_start").stop().fadeIn(200,
+				function(){
+					$(this).delay(3000).fadeOut(200);
+			});
 		}else if(status==2){
 			console.log("pressing d when status = 2!");
 			$("#warning_reset").stop().fadeOut(200);
@@ -138,12 +143,16 @@ $(document).jkey('w',function(){
 function pauseRec() {
 	if(status==1){
 			status = 0;
+			$("#sign_pause").stop().fadeIn(200);
+			$("#sign_start").stop().fadeOut(200);
 		}else if(status==2){
 			$("#warning_reset").stop().fadeOut(200);
 			status = 0;
+			$("#sign_pause").stop().fadeIn(200);
 		}else if(status==3){
 			$("#warning_printing").stop().fadeOut(200);
 			status = 0;
+			$("#sign_pause").stop().fadeIn(200);
 		}
 }
 
@@ -183,22 +192,27 @@ function printing() {
 	    	var cid = "imgCanvas"+cv;
 	    	$("#testImg canvas").attr("id",cid);
 	    	cid = document.getElementById(cid);
-	    	var dataUrl = cid.toDataURL();
-	    	$.ajax({
-			  type: "POST",
-			  url: "script.php",
-			  data: { 
-			     imgSent: dataUrl,
-			     imgName: "img"+cv
-			  }
-			}).done(function(o) {
-			  console.log('saved'); 
-			});
+	    	var dataUrl = cid.toDataURL("image/png");
+	  //   	$.ajax({
+			//   type: "POST",
+			//   url: "script.php",
+			//   data: { 
+			//      imgSent: dataUrl,
+			//      imgName: "img"+cv
+			//   }
+			// }).done(function(o) {
+			//   console.log('saved'); 
+			// });
 	    	
-	    	// document.getElementById('img1').src = dataUrl;
+	    	document.getElementById('img1').src = dataUrl;
+	    	var dlImg = dataUrl.replace("image/png", "image/octet-stream");  
+	    	window.location.href=dlImg;
 	    	cv++;
 	    	console.log("cv = "+cv);
-		});
+			});
+		var tempP = $("#warning_printing").html();
+		$("#warning_printing").html("<h2>Printing...</h2>").delay(1000).fadeOut(200, function(){$(this).html("<h2>"+tempP+"</h2>");});
+		status == 0;
 	}
 }
 

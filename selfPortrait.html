@@ -18,19 +18,25 @@
 		<script src="scripts/library/p5.speech.js"></script>
 		<script src="scripts/library/jquery.jkey.min.js"></script>
 		<script src="scripts/library/html2canvas.min.js"></script>
+		<div id = "sign_start" class = "sign"><h2>Start recording</h2></div>
+		<div id = "sign_pause" class = "sign"><h2>Pause recording</h2></div>
+		<div id = "warning_focus" class = "warning">
+			<h2>&uarr;&uarr;&uarr;</br>Please locate your face at the center of the camera.
+			</h2>
+		</div>
 		<div id = "warning_reset" class = "warning">
-				<h2>The text on the screen will be reset. Are you sure you want to restart recording? </br>Press "restart" button again to restart. Otherwise, turn off and on the "start/pause" switch once.
-				</h2>
-			</div>
-			<div id = "warning_printing" class = "warning">
-				<h2>Are you ready to print? Great! </br>To print, press the "print" button again. Otherwise, flip "start/pause" switch off and then on again.
-				</h2>
-			</div>
-			<div id = "warning_ending" class = "warning">
-				<h2>The text has reached maximum capacity.</br></br>
-				Please print or Reset.
-				</h2>
-			</div>
+			<h2>The text on the screen will be cleaned. </br>Are you sure you want to restart recording? </br></br>***</br>If you really want to reset it, press "restart" again. Otherwise, turn off and on the "start/pause" switch once.
+			</h2>
+		</div>
+		<div id = "warning_printing" class = "warning">
+			<h2>Are you ready to save the portrait?</br></br>***</br>If you do, press "print" again. Otherwise, turn off and on the "start/pause" switch once.
+			</h2>
+		</div>
+		<div id = "warning_ending" class = "warning">
+			<h2>The text has reached maximum capacity.</br></br>***</br>
+			Please print or reset.
+			</h2>
+		</div>
 		<div id = "container">
 			
 			<div id = "cover"></div>

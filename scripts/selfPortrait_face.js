@@ -22,6 +22,7 @@ var cheekLeft,
     cheekWidth;
 var maxCurrent = 17;
 var maxSteps = 26;
+var focusCounter = 0;
 function setup(){
   noCanvas();
   frameRate(24);
@@ -79,12 +80,25 @@ var trackingStarted = false;
 function startVideo() {
           ctrack.start(vid);
           trackingStarted = true;
-          // drawLoop();
-          // resizingBox();
+          drawLoop();
         }
        
-// function drawLoop() {
-//   requestAnimFrame(drawLoop);
+function drawLoop() {
+  requestAnimationFrame(drawLoop);
+  if(ctrack.getCurrentPosition()){
+    focusCounter = 0;
+    $("#warning_focus").hide();
+    positions = ctrack.getCurrentPosition();
+    movingBox(current);
+  }else{
+    focusCounter++
+    if(focusCounter>90){
+      $("#warning_focus").stop().show();
+    }
+  }
+}
+// function draw(){
+//   // requestAnimFrame(drawLoop);
 //   if(ctrack.getCurrentPosition()){
 //     positions = ctrack.getCurrentPosition();
 //     movingBox(current);
@@ -92,13 +106,4 @@ function startVideo() {
 
 //   }
 // }
-function draw(){
-  // requestAnimFrame(drawLoop);
-  if(ctrack.getCurrentPosition()){
-    positions = ctrack.getCurrentPosition();
-    movingBox(current);
-      // adjustSize();
-
-  }
-}
 
