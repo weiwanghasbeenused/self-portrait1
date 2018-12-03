@@ -48,15 +48,20 @@ function pushingText(){
 			$("#box"+k).append("<h1></h1>");
 			adjustSize();
 		}else if(tW>=$("#box"+k).width() && ($("#box"+k).height()-tH)<h1LineHeight){
+			if(k<maxCurrent){
 				k++;
+			}else{
+				if(current<=maxSteps){
+					current++;
+				}else{
+					status = 4;
+					$("#warning_ending").stop().fadeIn(200);
+				}
+
+			}
 		}
 		if(k>current&&j<savedText.length-1){
-			if(current<27){
-				current++;
-			}else{
-				status = 4;
-				$("#warning_ending").stop().fadeIn(200);
-			}
+			current++;
 			if(current<=maxCurrent){
 				addingBox();
 			}

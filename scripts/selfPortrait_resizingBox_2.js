@@ -532,8 +532,9 @@ function resizingBox(c){
                 "width":chinWidth+"px",
                 "height":h+"px"
             });
-    }
-    if(c>=14){
+            break;
+
+         case 14:
             $("#box0").css({
                 "width":w+"px",
                 "height":h+"px"
@@ -594,6 +595,76 @@ function resizingBox(c){
                 "width":chinWidth+"px",
                 "height":h+"px"
             });
+            break;
+
+        case 15:
+            $("#box0").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box1").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box2").css({
+                "width":positions[14][0]-positions[28][0]+"px",
+                "height":h+"px"
+            });
+            $("#box3").css({
+                "width":positions[30][0]-positions[25][0]+"px",
+                "height":h+"px"
+            });
+            $("#box4").css({
+                "width":positions[23][0]-positions[0][0]+"px",
+                "height":h+"px"
+            });
+            $("#box5").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box6").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box7").css({
+                "width":positions[12][0]-positions[39][0]+"px",
+                "height":h+"px"
+            });
+            $("#box8").css({
+                "width":positions[35][0]-positions[2][0]+"px",
+                "height":h+"px"
+            });
+            $("#box9").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box10").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box11").css({
+                "width":positions[11][0]-positions[50][0]+"px",
+                "height":h+"px"
+            });
+            $("#box12").css({
+                "width":positions[44][0]-positions[3][0]+"px",
+                "height":h+"px"
+            });
+            $("#box13").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box13").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box14").css({
+                "width":chinWidth+"px",
+                "height":h+"px"
+            });
+    }
+    if(c>=14){
+            
 
     }
 }

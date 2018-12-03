@@ -14,7 +14,8 @@ var chinLeft;
 var chinLeft2;
 var noseLeft;
 var mouthLeft;
-var maxCurrent = 14;
+var maxCurrent = 17;
+var maxSteps = 26;
 function adjustVideoProportions() {
           var proportion = vid.videoWidth/vid.videoHeight;
               vid_height = vid_width/proportion;
