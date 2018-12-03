@@ -157,20 +157,27 @@ $(document).jkey('s',function pinting(){
 	}else if(status == 3){
 			console.log("shot!");
 			html2canvas(document.getElementById('container')).then(function(canvas) {
+	    	$("#testImg").empty();
 	    	document.getElementById('testImg').appendChild(canvas);
 	    	
 	    	var cid = "imgCanvas"+cv;
 	    	$("#testImg canvas").attr("id",cid);
 	    	cid = document.getElementById(cid);
-	    	// var cid2 = document.getElementById('testCanvas');
-	    	// var cid2ctx = cid2.getContext('2d');
-	    	// cid2ctx.drawImage(cid, 0, 0);
-	    	var dataUrl = cid.toDataURL("image/png");
-	    	console.log("dataUrl = "+dataUrl);
-	    	document.getElementById('img1').src = dataUrl;
-	    	// var imgg = document.getElementById(cid).toDataURL("image/png").replace("image/png", "image/octet-stream");
-	    	// window.location.href=imgg;
+	    	var dataUrl = cid.toDataURL();
+	    	$.ajax({
+			  type: "POST",
+			  url: "script.php",
+			  data: { 
+			     imgSent: dataUrl,
+			     imgName: "img"+cv
+			  }
+			}).done(function(o) {
+			  console.log('saved'); 
+			});
+	    	
+	    	// document.getElementById('img1').src = dataUrl;
 	    	cv++;
+	    	console.log("cv = "+cv);
 		});
 	}
 });
