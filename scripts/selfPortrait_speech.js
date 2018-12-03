@@ -4,7 +4,7 @@ var savedText =[];
 var k = 0;
 var h1LineHeight = textHeight();
 
-// 0 = paused, 1 = recording, 2 = reset warning
+// 0 = paused, 1 = recording, 2 = reset warning, 3 = print, 4 = maximum
 var status = 0; 
 
 current = 0;
@@ -37,21 +37,29 @@ function pushingText(){
 	adjustSize();
 	k = 0;	
 	for(j = 0;j<savedText.length;j++){
-		console.log("adding Text to box"+k);
-		$("#box"+k+" h1:last-of-type").append(savedText[j]);
+		if(k<maxCurrent){
+			$("#box"+k+" h1:last-of-type").append(savedText[j]);
+		}else{
+			$("#box"+maxCurrent+" h1:last-of-type").append(savedText[j]);
+		}
 		var tW = textWidth2($("#box"+k+" h1:last-of-type"));
 		var tH = $("#box"+k).find("h1").length*h1LineHeight;
-		console.log("width of "+$("#box"+k+" h1:last-of-type").html()+" is "+tW);
 		if(tW>=$("#box"+k).width() && ($("#box"+k).height()-tH)>=h1LineHeight){
 			$("#box"+k).append("<h1></h1>");
 			adjustSize();
 		}else if(tW>=$("#box"+k).width() && ($("#box"+k).height()-tH)<h1LineHeight){
-			k++;
-			console.log("k++, k = "+k);
+				k++;
 		}
 		if(k>current&&j<savedText.length-1){
-			current++;
-			addingBox();
+			if(current<27){
+				current++;
+			}else{
+				status = 4;
+				$("#warning_ending").stop().fadeIn(200);
+			}
+			if(current<=maxCurrent){
+				addingBox();
+			}
 		}
 	}
 }
@@ -86,39 +94,44 @@ function adjustSize(){
 
 // start speech
 $(document).jkey('d',function(){
-	if(status==0){
-		console.log("start!");
-		rec.start(); 
-		console.log("currentt = "+current); 
-		resizingBox(current);
-		status = 1;
-	}else if(status==2){
-		console.log("pressing d when status = 2!");
-		$("#warning_reset").stop().fadeOut("200");
-		status = 1;
-	}else if(status==3){
-		$("#warning_printing").stop().fadeOut("200");
-		status = 1;
+	if(current<27){
+		if(status==0){
+			console.log("start!");
+			rec.start(); 
+			resizingBox(current);
+			status = 1;
+		}else if(status==2){
+			console.log("pressing d when status = 2!");
+			$("#warning_reset").stop().fadeOut(200);
+			status = 1;
+		}else if(status==3){
+			$("#warning_printing").stop().fadeOut(200);
+			status = 1;
+		}
+	}else{
+		$("#warning_ending").fadeIn(200);
 	}
 });
 
 // pause speech
 $(document).jkey('w',function(){
-	if(status==1){
-		status = 0;
-	}else if(status==2){
-		$("#warning_reset").stop().fadeOut("200");
-		status = 0;
-	}else if(status==3){
-		$("#warning_printing").stop().fadeOut("200");
-		status = 0;
-	}
+	
+		if(status==1){
+			status = 0;
+		}else if(status==2){
+			$("#warning_reset").stop().fadeOut(200);
+			status = 0;
+		}else if(status==3){
+			$("#warning_printing").stop().fadeOut(200);
+			status = 0;
+		}
+	
 });
 
 // restart
 $(document).jkey('a',function(){
-	if(status==0||status == 1){
-		$("#warning_reset").stop().fadeIn("200");
+	if(status==0||status == 1||status == 4){
+		$("#warning_reset").stop().fadeIn(200);
 		status = 2;
 	}else if(status == 2){
 		$("#warning_reset").html("<h2>Restarting...</h2>");
@@ -127,8 +140,8 @@ $(document).jkey('a',function(){
 });
 
 $(document).jkey('s',function(){
-	if(status==0||status == 1){
-		$("#warning_printing").stop().fadeIn("200");
+	if(status==0||status == 1||status == 4){
+		$("#warning_printing").stop().fadeIn(200);
 		status = 3;
 	}else if(status == 3){
 		// do something printing

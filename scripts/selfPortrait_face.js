@@ -8,7 +8,13 @@ var canv = document.getElementById('canv');
 var canvCC = canv.getContext('2d');
 var positions;
 var current;
-
+var btEyes;
+var btEyes2;
+var chinLeft;
+var chinLeft2;
+var noseLeft;
+var mouthLeft;
+var maxCurrent = 14;
 function adjustVideoProportions() {
           var proportion = vid.videoWidth/vid.videoHeight;
               vid_height = vid_width/proportion;
@@ -69,9 +75,6 @@ function startVideo() {
 function drawLoop() {
   requestAnimFrame(drawLoop);
   if(ctrack.getCurrentPosition()){
-    if(current==0){
-
-    }
     positions = ctrack.getCurrentPosition();
     movingBox(current);
       // adjustSize();

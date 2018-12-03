@@ -3,350 +3,269 @@ function resizingBox(c){
     var bottomest = positions[7][1];
     var leftest = positions[1][0];
     var rightest = positions[14][0];
+    var aboveMouth = positions[60][1]-topest;
+    var w = rightest-leftest;
+    var l = wWidth-rightest;
+    var chinWidth = positions[9][0]-positions[5][0];
+    var noseWidth = positions[39][0]-positions[35][0];
+    console.log("btEyes = "+btEyes);
+    // setting h 
+    if(current<2){
+        var h = (bottomest-topest)/(current+1);
+    }else if(current>=2&&current<5){
+        var h = aboveMouth/(current);
+    }else if(current>=5&&current<=6){
+        var h = aboveMouth/4;
+    }else if(current>=7&&current<10){
+        var h = aboveMouth/5;
+    }else if(current>=10&&current<12){
+        var h = aboveMouth/(current-4);
+    }else if(current>=12){
+        var h = aboveMouth/8;
+    }
+    // setting btEyes
+    if(current>=2){
+        btEyes = w-(positions[25][0]-leftest);
+    }
+    if(current>=8){
+        btEyes = w-(positions[23][0]-leftest);
+        btEyes2 = (w-(positions[30][0]-positions[25][0]))/2;
+    }
+    
+    // setting chin
+    if(current>=6){
+        chinLeft = (w-(positions[9][0]-positions[5][0]))/2;
+    }
+
+    // setting nose
+    if(current>=7){
+        noseLeft = (w-noseWidth)/2;
+    }
+    if(current>=9){
+        noseLeft = w-(positions[39][0]-positions[35][0]);
+    }
+
+    // setting mouth
+    if(c>=14){
+        mouthLeft = w-(positions[44][0]-positions[3][0]);
+    }
+    
     switch(c){
         case 0:
-        // only 1 box
-        console.log("resizing when current = 0");
-            var w = rightest-leftest,
-                h = bottomest-topest,
-                l = wWidth-rightest;
-                // console.log(leftest);
             $("#box0").css({
                 "width":w+"px",
-                // "left":l+"px",
                 "height":h+"px"
-                // "top":topest+"px"
             });
             break;
+
         case 1:
-        // 2 boxes...
-            var w = rightest-leftest,
-                h = bottomest-topest,
-                l = wWidth-rightest;            
             $("#box0").css({
                 "width":w+"px",
-                "height":h/2+"px"
-                // "left":l+"px",
-                // "top":topest+"px"
+                "height":h+"px"
             });
             $("#box1").css({
                 "width":w+"px",
-                "height":h/2+"px"
-                // "left":l+"px",
-                // "top":topest+h/2+"px"
+                "height":h+"px"
             });
             break;
+
         case 2:
-            var w = rightest-leftest,
-                h = (bottomest-topest)/4,
-                l = wWidth-rightest;
-                // console.log(leftest);
-            
             $("#box0").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+"px"
             });
             $("#box1").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+h+"px"
             });
             $("#box2").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":positions[57][1]+"px"
             });
             break;
+
         case 3:
-            var w = rightest-leftest,
-                h = (bottomest-topest)/5,
-                l = wWidth-rightest;
-                // console.log(leftest);
-            
             $("#box0").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+"px"
             });
             $("#box1").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+h+"px"
             });
             $("#box2").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+2*h+"px"
             });
             $("#box3").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":positions[57][1]+"px"
             });
-            
             break;
+
         case 4:
-        var w = rightest-leftest,
-            h = (bottomest-topest)/5,
-            l = wWidth-rightest;
-            // console.log(leftest);
+
             $("#box0").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+"px"
             });
             $("#box1").css({
                 "width":positions[14][0]-positions[30][0]+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h+topest+"px"
             });
             $("#box2").css({
                 "width":positions[25][0]-leftest+"px",
                 "height":h+"px"
-                // "left":wWidth-positions[25][0]+"px",
-                // "top":h+topest+"px"
             });
             $("#box3").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*2+topest+"px"
             });
             $("#box4").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":positions[57][1]+"px"
             });
             
             break;
         case 5:
-        var w = rightest-leftest,
-            h = (bottomest-topest)/6,
-            l = wWidth-rightest;
-            // console.log(leftest);
             $("#box0").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+"px"
             });
             $("#box1").css({
                 "width":positions[14][0]-positions[30][0]+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h+topest+"px"
             });
 
             $("#box2").css({
                 "width":positions[25][0]-leftest+"px",
                 "height":h+"px"
-                // "left":wWidth-positions[25][0]+"px",
-                // "top":h+topest+"px"
             });
             $("#box3").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*2+topest+"px"
             });
             $("#box4").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*3+topest+"px"
             });
             $("#box5").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":positions[57][1]+"px"
             });
-            
             break;
-        case 6:
-        var w = rightest-leftest,
-            h = (bottomest-topest)/7,
-            l = wWidth-rightest;
-            // console.log(leftest);
+
+        case 6:    
             $("#box0").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+"px"
             });
             $("#box1").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h+topest+"px"
             });
             $("#box2").css({
                 "width":positions[14][0]-positions[30][0]+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*2+topest+"px"
             });
             $("#box3").css({
                 "width":positions[25][0]-leftest+"px",
                 "height":h+"px"
-                // "left":wWidth-positions[25][0]+"px",
-                // "top":h*2+topest+"px"
             });
-            
             $("#box4").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*3+topest+"px"
             });
             $("#box5").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*4+topest+"px"
             });
             $("#box6").css({
-                "width":positions[8][0]-positions[6][0]+"px",
+                "width":chinWidth+"px",
                 "height":h+"px"
-                // "left":l+(w-(positions[8][0]-positions[6][0]))/2+"px",
-                // "top":positions[57][1]+"px"
             });
 
             break;
         case 7:
-        var w = rightest-leftest,
-            h = (bottomest-topest)/7,
-            l = wWidth-rightest;
+            btEyes = w-(positions[25][0]-leftest);
             // console.log(leftest);
             $("#box0").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+"px"
             });
             $("#box1").css({
                 "width":positions[14][0]-positions[30][0]+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h+topest+"px"
             });
             $("#box2").css({
                 "width":positions[25][0]-leftest+"px",
                 "height":h+"px"
-                // "left":wWidth-positions[25][0]+"px",
-                // "top":h+topest+"px"
             });
             $("#box3").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*2+topest+"px"
             });
             $("#box4").css({
                 "width":positions[39][0]-positions[35][0]+"px",
                 "height":h+"px"
-                // "left":l+(w-(positions[39][0]-positions[35][0]))/2+"px",
-                // "top":h*3+topest+"px"
             });
             $("#box5").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*4+topest+"px"
             });
             $("#box6").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":positions[57][1]+"px"
             });
             $("#box7").css({
-                "width":positions[8][0]-positions[6][0]+"px",
+                "width":chinWidth+"px",
                 "height":h+"px"
-                // "left":l+(w-(positions[8][0]-positions[6][0]))/2+"px",
-                // "top":positions[57][1]+h+"px"
             });
             break;
         case 8:
-        var w = rightest-leftest,
-            h = (bottomest-topest)/8,
-            l = wWidth-rightest;
+            btEyes = w-(positions[25][0]-leftest);
             // console.log(leftest);
             $("#box0").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+"px"
             });
             $("#box1").css({
                 "width":positions[14][0]-positions[28][0]+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h+topest+"px"
             });
             $("#box2").css({
                 "width":positions[30][0]-positions[25][0]+"px",
                 "height":h+"px"
-                // "left":wWidth-positions[30][0]+"px",
-                // "top":h+topest+"px"
             });
             $("#box3").css({
                 "width":positions[23][0]-positions[0][0]+"px",
                 "height":h+"px"
-                // "left":wWidth-positions[0][0]+"px",
-                // "top":h+topest+"px"
             });
             $("#box4").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*2+topest+"px"
             });
             $("#box5").css({
                 "width":positions[39][0]-positions[35][0]+"px",
                 "height":h+"px"
-                // "left":l+(w-(positions[39][0]-positions[35][0]))/2+"px",
-                // "top":h*4+topest+"px"
             });
             $("#box6").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*5+topest+"px"
             });
             $("#box7").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":positions[57][1]+"px"
             });
             $("#box8").css({
-                "width":positions[8][0]-positions[6][0]+"px",
+                "width":chinWidth+"px",
                 "height":h+"px"
-                // "left":l+(w-(positions[8][0]-positions[6][0]))/2+"px",
-                // "top":positions[57][1]+h+"px"
             });
             break;
         case 9:
-        var w = rightest-leftest,
-            h = (bottomest-topest)/9,
-            l = wWidth-rightest;
             $("#box0").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+"px"
             });
             $("#box1").css({
                 "width":positions[14][0]-positions[28][0]+"px",
@@ -398,159 +317,283 @@ function resizingBox(c){
                 // "top":positions[57][1]+"px"
             });
             $("#box9").css({
-                "width":positions[8][0]-positions[6][0]+"px",
+                "width":chinWidth+"px",
                 "height":h+"px"
                 // "left":l+(w-(positions[8][0]-positions[6][0]))/2+"px",
                 // "top":positions[57][1]+h+"px"
             });
             break;
         case 10:
-        var w = rightest-leftest,
-            h = (bottomest-topest)/9,
-            l = wWidth-rightest;
             // console.log(leftest);
             $("#box0").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+"px"
             });
             $("#box1").css({
-                "width":positions[14][0]-positions[28][0]+"px",
+                "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h+topest+"px"
             });
             $("#box2").css({
-                "width":positions[30][0]-positions[25][0]+"px",
+                "width":positions[14][0]-positions[28][0]+"px",
                 "height":h+"px"
-                // "left":wWidth-positions[30][0]+"px",
-                // "top":h+topest+"px"
             });
             $("#box3").css({
-                "width":positions[23][0]-positions[0][0]+"px",
+                "width":positions[30][0]-positions[25][0]+"px",
                 "height":h+"px"
-                // "left":wWidth-positions[0][0]+"px",
-                // "top":h+topest+"px"
             });
             $("#box4").css({
-                "width":w+"px",
+                "width":positions[23][0]-positions[0][0]+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*2+topest+"px"
             });
             $("#box5").css({
-                "width":positions[39][0]-positions[35][0]+"px",
-                "height":h+"px"
-                // "left":l+(w-(positions[39][0]-positions[35][0]))/2+"px",
-                // "top":h*3+topest+"px"
-            });
-            $("#box6").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*4+topest+"px"
+            });
+            $("#box6").css({
+                "width":positions[12][0]-positions[39][0]+"px",
+                "height":h+"px"
             });
             $("#box7").css({
-                "width":positions[11][0]-positions[50][0]+"px",
+                "width":positions[35][0]-positions[2][0]+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*5+topest+"px"
             });
             $("#box8").css({
-                "width":positions[44][0]-positions[3][0]+"px",
+                "width":w+"px",
                 "height":h+"px"
-                // "left":wWidth-positions[44][0]+"px",
-                // "top":h*5+topest+"px"
             });
             $("#box9").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":positions[57][1]+"px"
             });
             $("#box10").css({
-                "width":positions[8][0]-positions[6][0]+"px",
+                "width":chinWidth+"px",
                 "height":h+"px"
-                // "left":l+(w-(positions[8][0]-positions[6][0]))/2+"px",
-                // "top":positions[57][1]+h+"px"
             });
             break;
         case 11:
-        var w = rightest-leftest,
-            h = (bottomest-topest)/0,
-            l = wWidth-rightest;
             $("#box0").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":topest+"px"
             });
             $("#box1").css({
-                "width":positions[14][0]-positions[28][0]+"px",
+                "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h+topest+"px"
             });
             $("#box2").css({
-                "width":positions[30][0]-positions[25][0]+"px",
+                "width":positions[14][0]-positions[28][0]+"px",
                 "height":h+"px"
-                // "left":wWidth-positions[30][0]+"px",
-                // "top":h+topest+"px"
             });
             $("#box3").css({
-                "width":positions[23][0]-positions[0][0]+"px",
+                "width":positions[30][0]-positions[25][0]+"px",
                 "height":h+"px"
-                // "left":wWidth-positions[0][0]+"px",
-                // "top":h+topest+"px"
             });
             $("#box4").css({
-                "width":w+"px",
+                "width":positions[23][0]-positions[0][0]+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*2+topest+"px"
             });
             $("#box5").css({
-                "width":positions[12][0]-positions[39][0]+"px",
-                "height":h+"px"
-                // "left":l+"px",
-                // "top":h*3+topest+"px"
-            });
-            $("#box6").css({
-                "width":positions[35][0]-positions[2][0]+"px",
-                "height":h+"px"
-                // "left":wWidth-positions[35][0]+"px",
-                // "top":h*3+topest+"px"
-            });
-            $("#box7").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*4+topest+"px"
+            });
+            $("#box6").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box7").css({
+                "width":positions[12][0]-positions[39][0]+"px",
+                "height":h+"px"
             });
             $("#box8").css({
-                "width":positions[11][0]-positions[50][0]+"px",
+                "width":positions[35][0]-positions[2][0]+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":h*5+topest+"px"
             });
             $("#box9").css({
-                "width":positions[44][0]-positions[3][0]+"px",
+                "width":w+"px",
                 "height":h+"px"
-                // "left":wWidth-positions[44][0]+"px",
-                // "top":h*5+topest+"px"
             });
             $("#box10").css({
                 "width":w+"px",
                 "height":h+"px"
-                // "left":l+"px",
-                // "top":positions[57][1]+"px"
             });
             $("#box11").css({
-                "width":positions[8][0]-positions[6][0]+"px",
+                "width":chinWidth+"px",
                 "height":h+"px"
-                // "left":l+(w-(positions[8][0]-positions[6][0]))/2+"px",
-                // "top":positions[57][1]+h+"px"
+            });
+            break;
+
+        case 12:
+            $("#box0").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box1").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box2").css({
+                "width":positions[14][0]-positions[28][0]+"px",
+                "height":h+"px"
+            });
+            $("#box3").css({
+                "width":positions[30][0]-positions[25][0]+"px",
+                "height":h+"px"
+            });
+            $("#box4").css({
+                "width":positions[23][0]-positions[0][0]+"px",
+                "height":h+"px"
+            });
+            $("#box5").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box6").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box7").css({
+                "width":positions[12][0]-positions[39][0]+"px",
+                "height":h+"px"
+            });
+            $("#box8").css({
+                "width":positions[35][0]-positions[2][0]+"px",
+                "height":h+"px"
+            });
+            $("#box9").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box10").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box11").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box12").css({
+                "width":chinWidth+"px",
+                "height":h+"px"
+            });
+            break;
+
+        case 13:
+            $("#box0").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box1").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box2").css({
+                "width":positions[14][0]-positions[28][0]+"px",
+                "height":h+"px"
+            });
+            $("#box3").css({
+                "width":positions[30][0]-positions[25][0]+"px",
+                "height":h+"px"
+            });
+            $("#box4").css({
+                "width":positions[23][0]-positions[0][0]+"px",
+                "height":h+"px"
+            });
+            $("#box5").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box6").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box7").css({
+                "width":positions[12][0]-positions[39][0]+"px",
+                "height":h+"px"
+            });
+            $("#box8").css({
+                "width":positions[35][0]-positions[2][0]+"px",
+                "height":h+"px"
+            });
+            $("#box9").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box10").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box11").css({
+                "width":positions[11][0]-positions[50][0]+"px",
+                "height":h+"px"
+            });
+            $("#box12").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box13").css({
+                "width":chinWidth+"px",
+                "height":h+"px"
+            });
+    }
+    if(c>=14){
+            $("#box0").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box1").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box2").css({
+                "width":positions[14][0]-positions[28][0]+"px",
+                "height":h+"px"
+            });
+            $("#box3").css({
+                "width":positions[30][0]-positions[25][0]+"px",
+                "height":h+"px"
+            });
+            $("#box4").css({
+                "width":positions[23][0]-positions[0][0]+"px",
+                "height":h+"px"
+            });
+            $("#box5").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box6").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box7").css({
+                "width":positions[12][0]-positions[39][0]+"px",
+                "height":h+"px"
+            });
+            $("#box8").css({
+                "width":positions[35][0]-positions[2][0]+"px",
+                "height":h+"px"
+            });
+            $("#box9").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box10").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box11").css({
+                "width":positions[11][0]-positions[50][0]+"px",
+                "height":h+"px"
+            });
+            $("#box12").css({
+                "width":positions[44][0]-positions[3][0]+"px",
+                "height":h+"px"
+            });
+            $("#box13").css({
+                "width":w+"px",
+                "height":h+"px"
+            });
+            $("#box14").css({
+                "width":chinWidth+"px",
+                "height":h+"px"
             });
 
     }
