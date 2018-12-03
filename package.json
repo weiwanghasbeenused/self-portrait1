@@ -1,0 +1,28 @@
+{
+  "name": "self-portrait1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weiwanghasbeenused/self-portrait1.git"
+  },
+  "author": "Wei Wang and Bobby Joe Smith III",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weiwanghasbeenused/self-portrait1/issues"
+  },
+  "homepage": "https://github.com/weiwanghasbeenused/self-portrait1#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "http-server": "^0.11.1",
+    "request": "^2.88.0",
+    "serialport": "^7.1.0",
+    "thermalprinter": "^0.3.8",
+    "ws": "^6.1.2"
+  }
+}

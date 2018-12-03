@@ -13,11 +13,11 @@ current = 0;
 rec = new p5.SpeechRec(); 
 rec.continuous = false;
 rec.onResult = showResult;
-rec.onError = restart;
-rec.onEnd = restart;
+rec.onError = restartRec;
+rec.onEnd = restartRec;
 
 
-function restart(){
+function restartRec(){
 	console.log("restart!");
 	if(status == 1){
 		rec.start();
@@ -104,7 +104,12 @@ function adjustSize(){
 }
 
 // start speech
-$(document).jkey('d',function startRec(){
+$(document).jkey('d',function (){
+	startRec();
+	
+});
+
+function startRec() {
 	if(current<27){
 		if(status==0){
 			console.log("start!");
@@ -122,12 +127,16 @@ $(document).jkey('d',function startRec(){
 	}else{
 		$("#warning_ending").fadeIn(200);
 	}
-});
+}
 
 // pause speech
-$(document).jkey('w',function pauseRec(){
+$(document).jkey('w',function(){
+	pauseRec();
 	
-		if(status==1){
+});
+
+function pauseRec() {
+	if(status==1){
 			status = 0;
 		}else if(status==2){
 			$("#warning_reset").stop().fadeOut(200);
@@ -136,11 +145,14 @@ $(document).jkey('w',function pauseRec(){
 			$("#warning_printing").stop().fadeOut(200);
 			status = 0;
 		}
-	
-});
+}
 
 // restart
-$(document).jkey('a',function restart(){
+$(document).jkey('a',function(){
+	restart();
+});
+
+function restart() {
 	if(status==0||status == 1||status == 4){
 		$("#warning_reset").stop().fadeIn(200);
 		status = 2;
@@ -148,14 +160,22 @@ $(document).jkey('a',function restart(){
 		$("#warning_reset").html("<h2>Restarting...</h2>");
 		location.reload();
 	}
+}
+
+$(document).jkey('s',function (){
+	printing();
 });
 
-$(document).jkey('s',function pinting(){
+function printing() {
 	if(status==0||status == 1||status == 4){
 		$("#warning_printing").stop().fadeIn(200);
 		status = 3;
 	}else if(status == 3){
 			console.log("shot!");
+			for (character in savedText) {
+		      socket.send(savedText[character]);
+		    }
+		    socket.send("\n");
 			html2canvas(document.getElementById('container')).then(function(canvas) {
 	    	$("#testImg").empty();
 	    	document.getElementById('testImg').appendChild(canvas);
@@ -180,7 +200,7 @@ $(document).jkey('s',function pinting(){
 	    	console.log("cv = "+cv);
 		});
 	}
-});
+}
 
 
 
