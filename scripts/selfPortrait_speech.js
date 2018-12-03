@@ -6,6 +6,7 @@ var h1LineHeight = textHeight();
 
 // 0 = paused, 1 = recording, 2 = reset warning, 3 = print, 4 = maximum
 var status = 0; 
+var cv = 0;
 
 current = 0;
 
@@ -154,16 +155,22 @@ $(document).jkey('s',function pinting(){
 		$("#warning_printing").stop().fadeIn(200);
 		status = 3;
 	}else if(status == 3){
-		// do something printing
+			console.log("shot!");
+			html2canvas(document.body).then(function(canvas) {
+	    	document.body.appendChild(canvas);
+	    	$("canvas:last-of-type").attr("id","canvas"+cv);
+	    	var cid = "canvas"+cv;
+	    	
+
+	    	var dataUrl = document.getElementById(cid).toDataURL();
+	    	console.log("dataUrl = "+dataUrl);
+	    	$("#testImg img").attr("src",dataUrl);
+	    	cv++;
+		});
 	}
 });
 
-$(document).jkey('p',function(){
-	console.log("shot!");
-	html2canvas(document.body).then(function(canvas) {
-    	document.body.appendChild(canvas);
-	});
-});
+
 
 startVideo(); //start face
 
