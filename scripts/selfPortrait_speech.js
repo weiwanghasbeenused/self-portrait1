@@ -7,13 +7,19 @@ var h1LineHeight = textHeight();
 // 0 = paused, 1 = recording, 2 = reset warning, 3 = print, 4 = maximum
 var status = 0; 
 var cv = 0;
-
+var tempStatus;
+var prompt1 = $("#prompt1");
+var prompt2 = $("#prompt2");
+var prompt3 = $("#prompt3");
+var prompts = [prompt1, prompt2, prompt3];
 current = 0;
+
 
 rec = new p5.SpeechRec(); 
 rec.continuous = false;
 rec.onResult = showResult;
 rec.onError = restartRec;
+// rec.onError = console.log("Oops!");
 rec.onEnd = restartRec;
 
 
@@ -23,7 +29,18 @@ function restartRec(){
 		rec.start();
 	}
 }
+function showPrompt(){
+	// if (increment < prompts.length) {
+	// 	increment++;
+	// } else {
+	// 	increment = 0;
+	// }
+	var increment = parseInt(3*Math.random());
+	console.log("i = "+increment);
+	prompts[increment].show();
 
+
+}
 function showResult(){
 	var rs = rec.resultString;
 	savedTextTemp = rs.split(" ");
@@ -49,16 +66,8 @@ function pushingText(){
 			$("#box"+k).append("<h1></h1>");
 			adjustSize();
 		}else if(tW>=$("#box"+k).width() && ($("#box"+k).height()-tH)<h1LineHeight){
-			if(k<maxCurrent){
+			if(k<=maxCurrent){
 				k++;
-			}else{
-				if(current<=maxSteps){
-					current++;
-				}else{
-					status = 4;
-					$("#warning_ending").stop().fadeIn(200);
-				}
-
 			}
 		}
 		if(k>current&&j<savedText.length-1){
@@ -66,6 +75,14 @@ function pushingText(){
 			if(current<=maxCurrent){
 				addingBox();
 			}
+		}
+		if(k>maxCurrent&&current<=maxSteps){
+			current++;
+			adjustSize();
+			pushingText();
+		}else if (current>maxSteps){
+			status = 4;
+			$("#warning_ending").stop().fadeIn(200);
 		}
 	}
 }
@@ -110,6 +127,7 @@ $(document).jkey('d',function (){
 });
 
 function startRec() {
+	$(".prompts").hide();
 	if(current<27){
 		if(status==0){
 			console.log("start!");
@@ -127,6 +145,7 @@ function startRec() {
 			status = 1;
 		}else if(status==3){
 			$("#warning_printing").stop().fadeOut(200);
+			tempStatus = 5;
 			status = 1;
 		}
 	}else{
@@ -151,6 +170,7 @@ function pauseRec() {
 			$("#sign_pause").stop().fadeIn(200);
 		}else if(status==3){
 			$("#warning_printing").stop().fadeOut(200);
+			tempStatus = 5;
 			status = 0;
 			$("#sign_pause").stop().fadeIn(200);
 		}
@@ -176,7 +196,12 @@ $(document).jkey('s',function (){
 });
 
 function printing() {
-	if(status==0||status == 1||status == 4){
+	if(status==0||status == 1){
+		$("#warning_printing").stop().fadeIn(200);
+		tempStatus = status;
+		status = 3;
+	}else if(status == 4){
+		$("#warning_ending").stop().hide();
 		$("#warning_printing").stop().fadeIn(200);
 		status = 3;
 	}else if(status == 3){
@@ -186,7 +211,7 @@ function printing() {
 		    }
 		    socket.send("\n");
 			html2canvas(document.getElementById('container')).then(function(canvas) {
-	    	$("#testImg").empty();
+	    	$("#testImg canvas").remove();
 	    	document.getElementById('testImg').appendChild(canvas);
 	    	
 	    	var cid = "imgCanvas"+cv;
@@ -212,11 +237,11 @@ function printing() {
 			});
 		var tempP = $("#warning_printing").html();
 		$("#warning_printing").html("<h2>Printing...</h2>").delay(1000).fadeOut(200, function(){$(this).html("<h2>"+tempP+"</h2>");});
-		status == 0;
+		status = tempStatus;
 	}
 }
 
 
-
+showPrompt();
 startVideo(); //start face
 

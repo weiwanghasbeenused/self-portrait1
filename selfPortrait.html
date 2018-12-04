@@ -18,11 +18,17 @@
 		<script src="scripts/library/p5.speech.js"></script>
 		<script src="scripts/library/jquery.jkey.min.js"></script>
 		<script src="scripts/library/html2canvas.min.js"></script>
+		<div id = "title"><h3>Self Portrait</h3></div>
+		<div id = "prompt1" class = "prompts"><h4>Tell me who do you want to be.</h4>
+			<h5>turn the rec/stop switch on</h5></div>
+		<div id = "prompt2" class = "prompts"><h4>Tell me a lie.</h4><h5>turn the rec/stop switch on</h5></div>
+		<div id = "prompt3" class = "prompts"><h4>Tell me a secret.</h4><h5>turn the rec/stop switch on</h5></div>
 		<div id = "sign_start" class = "sign"><h2>Start recording</h2></div>
 		<div id = "sign_pause" class = "sign"><h2>Pause recording</h2></div>
 		<div id = "warning_focus" class = "warning">
-			<h2>&uarr;&uarr;&uarr;</br>Please locate your face at the center of the camera.
-			</h2>
+			<h2>Please locate your face at the center.</br>Taking off glasses will be helpful.</br>
+			&darr;&darr;&darr;</br></h2>
+			<div id = "redFrame"></div>
 		</div>
 		<div id = "warning_reset" class = "warning">
 			<h2>The text on the screen will be cleaned. </br>Are you sure you want to restart recording? </br></br>***</br>If you really want to reset it, press "restart" again. Otherwise, turn off and on the "start/pause" switch once.
@@ -46,12 +52,12 @@
 			<div id = "box0" class = "resultBox"><h1 class = 'size0'></h1></div>
 		</div>
 		<div id = "testImg">
-			<img id = "img1" src = "">
-		</div> 
+			<img id = "img1">
+		</div>
 		<canvas id = 'testCanvas'></canvas>
 		<script src="scripts/selfPortrait_face.js"></script>
-		<script src="scripts/selfPortrait_resizingBox_2.js"></script>
 		<script src="scripts/selfPortrait_movingBox_2.js"></script>
+		<script src="scripts/selfPortrait_resizingBox_2.js"></script>
 		<script src="scripts/selfPortrait_speech.js"></script>
 		<script src="scripts/socket.js"></script>
 	</body>

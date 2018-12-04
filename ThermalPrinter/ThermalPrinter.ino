@@ -56,6 +56,17 @@ void setup() {
   // reserve 200 bytes for the inputString:
   inputString.reserve(2000);
   initPrinter();
+
+  printer.doubleHeightOn();
+  printer.println(inputString);
+  printer.feed(2);
+  printer.doubleHeightOff();printer.println("Find your portrait on IG");
+  printer.println("@selfportraitxd");
+  printer.println("Make more portraits @");
+  printer.println("wei-haowang.com/XD/selfPortrait/selfPortrait.html");
+  printer.feed(6);
+
+  
 }
 
 void loop() {
@@ -120,8 +131,12 @@ void printMessage() {
   // Test character double-height on & off
   printer.doubleHeightOn();
   printer.println(inputString);
-  printer.feed(5);
-  printer.doubleHeightOff();
+  printer.feed(2);
+  printer.doubleHeightOff();printer.println("Find your portrait on IG");
+  printer.println("@selfportraitxd");
+  printer.println("Make more portraits @");
+  printer.println("wei-haowang.com/XD/selfPortrait/selfPortrait.html");
+  printer.feed(6);
 }
 
 void initPrinter() {
